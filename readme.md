@@ -1,4 +1,4 @@
-## Dashboard for MTJ
+## laravel start project
 
-
-移动统计监控
+this is the start up project for myself.
+including feature will add in my developing process.
