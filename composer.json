@@ -14,7 +14,7 @@
         "respect/validation": "~1.0",
         "barryvdh/laravel-debugbar": "~2.0",
         "laravel/socialite": "~2.0",
-        "barryvdh/laravel-ide-helper": "~2.1",
+        "barryvdh/laravel-ide-helper": "^2.1",
         "doctrine/dbal": "~2.5",
         "dingo/api": "1.0.x@dev"
     },

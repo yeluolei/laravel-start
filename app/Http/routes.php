@@ -28,12 +28,26 @@ Route::get('/partials/{category}/{action}/{id}', function ($category, $action = 
 });
 
 // Additional RESTful routes.
-Route::group(['prefix' => 'api/v1'], function () {
-    // auth
-    Route::post('/auth/authenticate', 'Auth\AuthController@authenticate');
+$api = app('Dingo\Api\Routing\Router');
+$api->version('v1', function ($api) {
+    /**
+     * @var Dingo\Api\Routing\Router $api
+     */
+    $api->group(['namespace' => 'App\Api\Controllers'], function($api){
+        /**
+         * @var Dingo\Api\Routing\Router $api
+         */
+        $api->post('/auth/authenticate', 'AuthController@authenticate');
+        $api->group( [ 'middleware' => 'jwt.refresh' ], function ($api) {
+            /**
+             * @var Dingo\Api\Routing\Router $api
+             */
+            $api->get('users/me', 'AuthController@me');
+            $api->get('validate_token', 'AuthController@validateToken');
 
-    // user
-    Route::resource('/user', 'UserController');
+            $api->resource('/users', 'UserController');
+        });
+    });
 });
 
 // Catch all undefined routes. Always gotta stay at the bottom since order of routes matters.

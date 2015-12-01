@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Api\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -12,7 +12,7 @@ use App\Models\User;
  * @package App\Http\Controllers
  * @Resource('Users', uri='/users')
  */
-class UserController extends Controller
+class UserController extends BaseController
 {
     public function __construct() {
         $this->middleware('jwt.auth');

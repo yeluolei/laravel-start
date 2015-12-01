@@ -109,7 +109,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -145,6 +144,12 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+
+        /*
+         * Dingo api
+         */
+        Dingo\Api\Provider\LaravelServiceProvider::class,
+
         /*
          * JWT Auth
          */
@@ -164,6 +169,7 @@ return [
          * IDE Helper
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
     ],
 
     /*
@@ -216,6 +222,8 @@ return [
         'JWTFactory'=> Tymon\JWTAuth\Facades\JWTFactory::class,
         'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
         'Debugbar'  => Barryvdh\Debugbar\Facade::class,
+        'APIRoute'  => Dingo\Api\Facade\Route::class,
+        'API'       => Dingo\Api\Facade\API::class,
     ],
 
 ];
